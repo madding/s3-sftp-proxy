@@ -121,7 +121,7 @@ func (s *Server) HandleClient(ctx context.Context, conn *net.TCPConn) error {
 	if err != nil {
 		return err
 	}
-
+	F(s.Log.Info, "connection from %s", conn.RemoteAddr().String())
 	F(s.Log.Info, "user %s logged in", sconn.User())
 	bucket, ok := s.UserToBucketMap[sconn.User()]
 	if !ok {
